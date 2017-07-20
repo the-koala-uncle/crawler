@@ -1,6 +1,6 @@
 import requests,os,time
 from bs4 import BeautifulSoup
-from collection import deque
+from collections import deque
 os.chdir(os.getcwd())
 from math import ceil
 
@@ -53,7 +53,7 @@ def morelist(url,page):
 
 
 def start():
-    for Deque!=[]:
+    while Deque!=[]:
         url=Deque.popleft()
         if url not in got:
             got.add(url)
