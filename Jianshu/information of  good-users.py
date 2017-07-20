@@ -13,7 +13,7 @@ res=requests.get(url,headers=headers)
 soup=beatifulsoup(res.txt,'lxml')
 ids=soup.find('a',class_='name')
 ids_name=ids.get_text()
-#ids_url=ids['herf'
+ids_url=ids['herf']
 print(rds)#3
 print(rds)#3
 print(rds)#3
