@@ -31,7 +31,7 @@ def get_one(url):
     moreurl=soup.find('div',class_='info').find('a')['href']
     moreurl='http://www.jianshu.com'+moreurl
     if int(morenum[1])<500:
-        print('donot conform to the requerement......')
+        print('donot conform to the requerement......（不满足）')
         return(moreurl,morenum[0])
     information='（{}）{} ，关注：{} ，粉丝：{} ，收获喜欢：{} ，文章：{} ，总字数：{} ，链接：{}'.format(number,ids_name,morenum[0],morenum[1],morenum[4],morenum[2],morenum[3],ids_url)
     number=number+1
@@ -46,7 +46,7 @@ def morelist(url,page):
         newurl=url+'?page='+str(n)
         Nextdeque.append(newurl)
         if len(Deque)<5:
-            print('from Nextdeque add url to Deque......')
+            print('from Nextdeque add url to Deque......（{})'.format(len(Nextdeque)))
             newurl=Nextdeque.popleft()
             res=requests.get(newurl,headers=headers)
             soup=BeautifulSoup(res.text,'lxml')
@@ -61,8 +61,8 @@ def morelist(url,page):
 
 
 def start():
-    while Deque!=[]:
-        print('from Deque add url......')
+    while len(Deque)!=0:
+        print('from Deque add url......({})'.format(len(Deque)))
         url=Deque.popleft()
         if url not in got:
             got.add(url)
