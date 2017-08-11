@@ -1,5 +1,5 @@
 #！python3
-#downloading manhua
+#Download the latest haizeiwang_manhua
 
 import requests,os,bs4
 from lxml import etree
