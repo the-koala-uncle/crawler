@@ -1,6 +1,6 @@
 Contents:
 
-01_Download the latest haizeiwang_manhua.py
+01_Cartoon of HaiZeiWang.py
 
 02_Login zhihu.py
 
