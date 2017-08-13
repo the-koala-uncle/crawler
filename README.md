@@ -21,15 +21,22 @@ Contents:
 10_spider sample.py（爬虫样本，代理）
 
 11_WeChat articles.py（从搜狗微信中抓取微信文章，貌似要验证码登录一次）
-12_Renew wallpapaer.py（？难以修改电脑的背景图，改后重启失效）
+
+12_Renew wallpapaer.py（将必应背景图设为电脑桌面）
+
 13_Send news（QQ和126邮箱的发送文件，不过邮箱的反垃圾规则搞得难以使用，只能给自身发邮件）
 
+14_12306.py(只实现获取车次功能）
+
+15_Control computer.py（通过读取邮件远程控制电脑）
 -----------------------------------------
 Need to finish:
 
 07_House price（套数没抓取，可以加一些其他地区）
 
+12_Renew wallpapaer.py（难以修改电脑的背景图，改后重启失效）
 
+14_12306.py(登录功能）
 
 
 
