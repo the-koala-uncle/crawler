@@ -1,4 +1,4 @@
-
+﻿
 # coding: utf-8
 
 # In[1]:
@@ -127,9 +127,8 @@ if __name__ == '__main__':
     if isLogin():
         print('您已经登录')
     else:
-       # account = input('请输入你的用户名\n>  ')
-        #password = input("请输入你的密码\n>  ")
-        account = '15814725615'
-        password = 'Panda001'
+        account = input('请输入你的用户名\n>  ')
+        password = input("请输入你的密码\n>  ")
+
         signin(account,password)
 

@@ -1,4 +1,4 @@
-Contents:
+﻿Contents:-
 
 01_Cartoon of HaiZeiWang.py（下载最新一集海贼王漫画）
 
@@ -14,7 +14,7 @@ Contents:
 
 07_House prices（抓取房价，深圳）
 
-08_crack（简单认证码）
+08_Crack（简单认证码）
 
 09_Proxy Server（爬取代理并使用）
 
@@ -30,41 +30,19 @@ Contents:
 
 15_Control computer.py（通过读取邮件远程控制电脑）
 
+16_use wordcloud（词云）
 
------------------------------------------
+------------------------------------------
 Need to finish:
-
+-
 07_House price（套数没抓取，可以加一些其他地区）
 
 12_Renew wallpapaer.py（难以修改电脑的背景图，改后重启失效）
 
 14_12306.py(登录功能）
 
+*英语查询功能
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*网易云接口下载
 
 

@@ -5,6 +5,11 @@ import pyautogui,pyperclip,os,tkinter.messagebox,encrypted
 import tkinter.simpledialog as dl
 import tkinter.messagebox as mb
 
+##
+##0,(400,45),
+##
+
+
 #NO.1 监控鼠标
 #NO.2 账号和密码获取
 x, y = pyautogui.position() 
