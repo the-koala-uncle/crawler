@@ -1,5 +1,5 @@
-﻿Contents:-
-
+﻿Contents:
+-
 01_Cartoon of HaiZeiWang.py（下载最新一集海贼王漫画）
 
 02_Login zhihu.py（知乎登录）
@@ -18,7 +18,7 @@
 
 09_Proxy Server（爬取代理并使用）
 
-10_spider sample.py（爬虫样本，代理）
+10_Spider sample.py（爬虫样本，代理）
 
 11_WeChat articles.py（从搜狗微信中抓取微信文章，貌似要验证码登录一次）
 
@@ -30,11 +30,15 @@
 
 15_Control computer.py（通过读取邮件远程控制电脑）
 
-16_use wordcloud（词云）
+16_Use wordcloud（词云）
+
+17_Translate Scrapy 1.4 documentation（翻译Scrapy 1.4官方文档）
 
 ------------------------------------------
 Need to finish:
 -
+17_Translate Scrapy 1.4 documentation（翻译Scrapy 1.4官方文档）
+
 07_House price（套数没抓取，可以加一些其他地区）
 
 12_Renew wallpapaer.py（难以修改电脑的背景图，改后重启失效）
