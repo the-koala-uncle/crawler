@@ -1,0 +1,2 @@
+1、class **(scrapy.Spider):中的name名字写错
+2.start_urls忘记后面的s

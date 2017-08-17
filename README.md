@@ -32,12 +32,12 @@
 
 16_Use wordcloud（词云）
 
-17_Translate Scrapy 1.4 documentation（翻译Scrapy 1.4官方文档）
+17_Scrapy 1.4（Scrapy学习记录）
 
 ------------------------------------------
 Need to finish:
 -
-17_Translate Scrapy 1.4 documentation（翻译Scrapy 1.4官方文档）
+
 
 07_House price（套数没抓取，可以加一些其他地区）
 

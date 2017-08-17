@@ -1,0 +1,18 @@
+start_urls = [
+         'http://quotes.toscrape.com/page/1/',
+         'http://quotes.toscrape.com/page/2/',
+    ]
+
+.extract_first()
+
+scrapy crawl quotes -o quotes.json
+
+
+
+
+
+
+
+
+
+
