@@ -1,0 +1,28 @@
+start_urls = [
+         'http://quotes.toscrape.com/page/1/',
+         'http://quotes.toscrape.com/page/2/',
+    ]
+-----------------------------------
+.extract_first()
+-----------------------------------
+scrapy crawl quotes -o quotes.json
+----------------------------------
+403 说明爬虫被屏蔽了，这里要加一个请求头部，模拟浏览器登录
+
+在settings.py里加入如下内容就可以模拟浏览器了
+
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0'
+-----------------------------------
+FEED_URI = u'file:///G://douban.csv'
+FEED_FORMAT = 'CSV'
+
+FEED_FORMAT ：指示输出格式，csv/xml/json/ 
+FEED_URI : 指示输出位置，可以是本地，也可以是FTP服务器
+-----------------------------------
+if next_url:
+    yield scrapy.Request(next_url,callback=self.parse
+-----------------------------------
+
+
+
+

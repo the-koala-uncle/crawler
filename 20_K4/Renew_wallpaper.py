@@ -4,9 +4,11 @@
 #@time:   2017/8/14 11:59
 #@desc:   renew_wallpapaer
 
-import requests, os, time,re
+import requests, os, time,re,configparser
 os.chdir(os.getcwd())
 from PIL import Image
+
+
 
 tim=(str(time.time()*1000)[:13])
 index='0'#数字0到7都可以
@@ -15,12 +17,12 @@ index='0'#数字0到7都可以
 url='http://cn.bing.com/HPImageArchive.aspx?format=js&idx=' + index + '&n=1&nc=' + tim + '&pid=hp'
 
 
-def Download_pic(url):
+def Download_pic(datapath):
     try:
         res=requests.get(url)
     except:
         print('网址错误')
-        input()
+
         return
     data=res.json()
     targit_url='http://cn.bing.com'+ data['images'][0]['url']
@@ -31,18 +33,20 @@ def Download_pic(url):
         pic=requests.get(targit_url,timeout=30)
     except:
         print('图片网址网速不佳')
-        input()
+
         return
     try:
         name = re.findall('[\u4e00-\u9fa5]*', targit_name)
+        config = configparser.ConfigParser()
+        config.read(datapath)
 
-        file = name[0]+'_'+name[2] + targit_url[-4:]
-
+        paths = config.get('path','wallpaper')
+        file = paths + name[0]+'_'+name[2] + targit_url[-4:]
         print('Found',file, sep=':')
 
         if os.path.isfile(file):
             print('图片已存在')
-            input()
+
             return
 
         with open(file,'wb')as f:
@@ -50,14 +54,13 @@ def Download_pic(url):
             print('下载完成')
     except:
         print('图片命名错误')
-        input()
+
         return
     time.sleep(3)
     im=Image.open(file)
     im.show()
     im.close()
 
-Download_pic(url)
 
 
 # import win32con
