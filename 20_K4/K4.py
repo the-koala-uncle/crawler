@@ -5,7 +5,7 @@ import poplib
 from email.parser import Parser
 from email.header import decode_header
 from email.utils import parseaddr
-import os, time, configparser, sys, threading, hashlib,requests,json#,pyperclip
+import os, time, configparser, sys, threading, hashlib,requests,json,pyperclip
 #import pyautogui
 
 # -------------------------------------------基本设置-------------------------------------------------------------------
@@ -77,6 +77,13 @@ def thread(code):
                 print('------------------')
 # -------------------------------------------多进程--------------------------
 def thread_more(de):
+    if len(Allthread)!=0:
+        for thr in Allthread:
+            if thr.is_alive():
+                pass
+            else:
+                thr.join()
+                Allthread.remove(thr)
     t = threading.Thread(target=thread(de))
     t.daemon = True
     Allthread.append(t)
@@ -162,41 +169,47 @@ def translate(q):
     sign=md5(appid+q+salt+psw)
     
     url='http://api.fanyi.baidu.com/api/trans/vip/translate?q='+q+'&from='+fromm+'&to='+to+'&appid='+appid+'&salt='+salt +'&sign='+sign
-    res=requests.get(url)
-
-    json_dict=json.loads(res.text)
     try:
-        return(json_dict["trans_result"][0]["dst"])
+        res=requests.get(url)
+
+        json_dict=json.loads(res.text)
+        try:
+            return(json_dict["trans_result"][0]["dst"])
+        except:
+            return(res.text)
+
     except:
-        return(res.text)
-
-
+        return('无法翻译')
         
 
 # -------------------------------------------主程序--------------------------------
-tt = threading.Thread(target=email_control)
-tt.daemon = True
-Allthread.append(tt)
-tt.start()
+t = threading.Thread(target=email_control)
+t.daemon = True
+Allthread.append(t)
+t.start()
 
 while 1:
-    if len(Allthread)!=0:
-        for thr in Allthread:
-            if thr.is_alive():
-                pass
-            else:
-                thr.join()
-                Allthread.remove(thr)
+
 
     index = input('请指示！')
     if index=='':
         index= pyperclip.paste()
-    if index=='end':
-        break
+    if index=='running':
+        print('子进程正在运行数量为：'+str(len(Allthread)))
+        print(Allthread)
+    elif index[0:2]=='百度':
+        os.startfile('https://www.baidu.com/s?wd='+index[2:])
+    elif index[0:5]=='baidu':
+        os.startfile('https://www.baidu.com/s?wd='+index[5:])
+    elif index=='start':
+        os.startfile(filepath[:-12])
 
-    try:
-        thread_more(index)
-    except Exception as e:
-        print(e)
-        print('未能启动进程')
+    elif index=='end':
+        break
+    else:
+        try:
+            thread_more(index)
+        except Exception as e:
+            print(e)
+            print('未能启动进程')
 
