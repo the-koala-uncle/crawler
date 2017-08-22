@@ -10,10 +10,11 @@ def kill(filepath):
             try:
                 config.get('task',str(pidDictionary['name']))
             except:
-                try:
-                    psutil.Process(int(pid)).terminate()
-                except:
-                    print(str(pidDictionary['name'])+'没有被结束')
+                print(str(pidDictionary['name'])+'没有被结束')
+##                try:
+##                    psutil.Process(int(pid)).terminate()
+##                except:
+##                    print(str(pidDictionary['name'])+'没有被结束')
 
 
     print('-------end-------')

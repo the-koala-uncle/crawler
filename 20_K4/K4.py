@@ -12,7 +12,7 @@ import os, time, configparser, sys, threading, hashlib,requests,json,pyperclip,p
 os.chdir(os.getcwd())
 filepath = 'E:\collection\_config.ini'
 Allthread = []
-
+task_list=[]
 date_list=[]
 ##pyautogui.keyDown('win')
 ##pyautogui.keyDown('d')
@@ -90,20 +90,27 @@ def thread_more(de):
     t.start()
 # -------------------------------------------关闭其他程序-----------------------
 def kill(path):
+    global task_list
     pidList = psutil.pids()
 
     for pid in pidList:
+
         pidDictionary = psutil.Process(pid).as_dict(attrs=['name']);
         for keys in pidDictionary.keys():
+            w =str(pidDictionary['name'])
             try:
-                config.get('task',str(pidDictionary['name']))
+                config.get('task',w)               
             except:
                 try:
                     psutil.Process(int(pid)).terminate()
+                    task_list.append(w)
                 except:
-                    print(str(pidDictionary['name'])+'没有被结束')
+                    print(w+'没有被结束')
 
-
+    print('以下进程已被终止：')                           
+    for tem in task_list:
+        print(tem)
+    task_list=[]
     print('-------end-------')
 # -------------------------------------------读取邮件-------------------------------------------------------------------
 def decode_str(s):
