@@ -46,6 +46,7 @@ def Download_pic(datapath):
 
         if os.path.isfile(file):
             print('图片已存在')
+            os.startfile(file)
 
             return
 
@@ -56,10 +57,11 @@ def Download_pic(datapath):
         print('图片命名错误')
 
         return
-    time.sleep(3)
-    im=Image.open(file)
-    im.show()
-    im.close()
+    time.sleep(2)
+    os.startfile(file)
+##    im=Image.open(file)
+##    im.show()
+##    im.close()
 
 
 

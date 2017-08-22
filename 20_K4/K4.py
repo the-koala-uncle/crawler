@@ -5,7 +5,7 @@ import poplib
 from email.parser import Parser
 from email.header import decode_header
 from email.utils import parseaddr
-import os, time, configparser, sys, threading, hashlib,requests,json,pyperclip
+import os, time, configparser, sys, threading, hashlib,requests,json,pyperclip,psutil
 #import pyautogui
 
 # -------------------------------------------基本设置-------------------------------------------------------------------
@@ -88,7 +88,23 @@ def thread_more(de):
     t.daemon = True
     Allthread.append(t)
     t.start()
+# -------------------------------------------关闭其他程序-----------------------
+def kill(path):
+    pidList = psutil.pids()
 
+    for pid in pidList:
+        pidDictionary = psutil.Process(pid).as_dict(attrs=['name']);
+        for keys in pidDictionary.keys():
+            try:
+                config.get('task',str(pidDictionary['name']))
+            except:
+                try:
+                    psutil.Process(int(pid)).terminate()
+                except:
+                    print(str(pidDictionary['name'])+'没有被结束')
+
+
+    print('-------end-------')
 # -------------------------------------------读取邮件-------------------------------------------------------------------
 def decode_str(s):
     value, charset = decode_header(s)[0]
@@ -141,7 +157,7 @@ def email_control():
         if temp_code:
             print(temp_code)
         else:
-            print('远程等待指示')
+            print('（{}）远程等待指示'.format(i+1))
         thread_more(temp_code)
         time.sleep(int(sleep))
 
@@ -203,6 +219,8 @@ while 1:
         os.startfile('https://www.baidu.com/s?wd='+index[5:])
     elif index=='start':
         os.startfile(filepath[:-12])
+    elif index=='kill':
+        kill(filepath)
 
     elif index=='end':
         break
