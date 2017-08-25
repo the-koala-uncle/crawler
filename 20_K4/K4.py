@@ -167,6 +167,16 @@ def email_control():
             print('（{}）远程等待指示'.format(i+1))
         thread_more(temp_code)
         time.sleep(int(sleep))
+def email_control1():
+    for i in range(int(run_time)):
+        time.sleep(1230)
+        temp_code = rerutn_code()
+        if temp_code:
+            print(temp_code)
+        else:
+            print('（{}）20分钟远程等待指示'.format(i+1))
+        thread_more(temp_code)
+        
 
 # -------------------------------------------翻译---------------------
 
@@ -206,7 +216,7 @@ def translate(q):
         
 
 # -------------------------------------------主程序--------------------------------
-t = threading.Thread(target=email_control)
+t = threading.Thread(target=email_control1)
 t.daemon = True
 Allthread.append(t)
 t.start()
@@ -226,6 +236,11 @@ while 1:
         os.startfile('https://www.baidu.com/s?wd='+index[5:])
     elif index=='start':
         os.startfile(filepath[:-12])
+    elif index=='con':
+        t = threading.Thread(target=email_control)
+        t.daemon = True
+        Allthread.append(t)
+        t.start()
     elif index=='kill':
         kill(filepath)
 
