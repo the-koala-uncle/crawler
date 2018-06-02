@@ -41,6 +41,7 @@ def Download_pic(datapath):
         config.read(datapath)
 
         paths = config.get('path','wallpaper')
+
         file = paths + name[0]+'_'+name[2] + targit_url[-4:]
         print('Found',file, sep=':')
 
